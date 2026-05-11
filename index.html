@@ -1,216 +1,321 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NovaCart - E-Commerce Store</title>
+<!-- PRODUCTS -->
 
-  <link rel="stylesheet" href="style.css">
+<section class="products-section">
 
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-  />
-</head>
+    <div class="section-header">
 
-<body>
+        <h2>
+            Featured Products
+        </h2>
 
-  <!-- NAVBAR -->
+        <button>
+            View All
+        </button>
 
-  <nav class="navbar">
-    <div class="logo">
-      <i class="fa-solid fa-bag-shopping"></i>
-      NovaCart
     </div>
-
-    <div class="nav-links">
-      <a href="#">Home</a>
-      <a href="#">Products</a>
-      <a href="#">Offers</a>
-      <a href="#">Contact</a>
-    </div>
-
-    <div class="cart-icon">
-      <i class="fa-solid fa-cart-shopping"></i>
-      <span id="cart-count">0</span>
-    </div>
-  </nav>
-
-  <!-- HERO SECTION -->
-
-  <section class="hero">
-
-    <div class="hero-text">
-      <h1>Upgrade Your Lifestyle</h1>
-
-      <p>
-        Discover premium gadgets, accessories,
-        and smart products at unbeatable prices.
-      </p>
-
-      <button>Shop Now</button>
-    </div>
-
-    <div class="hero-image">
-      <img src="https://picsum.photos/500/350?random=10">
-    </div>
-
-  </section>
-
-  <!-- PRODUCT SECTION -->
-
-  <section class="products-section">
-
-    <h2 class="section-title">
-      Trending Products
-    </h2>
 
     <div class="products">
 
-      <!-- PRODUCT 1 -->
+        <!-- CARD 1 -->
 
-      <div class="card">
+        <div class="card">
 
-        <div class="badge">
-          New
+            <img
+                src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500">
+
+            <h3>
+                Boat Rockerz Headphones
+            </h3>
+
+            <div class="rating">
+                ★★★★☆
+            </div>
+
+            <div class="price">
+                ₹1499
+            </div>
+
+            <button onclick="addToCart('Headphones',1499)">
+                Add to Cart
+            </button>
+
         </div>
 
-        <img src="https://picsum.photos/250?random=1">
+        <!-- CARD 2 -->
 
-        <h3>Wireless Headphones</h3>
+        <div class="card">
 
-        <p class="desc">
-          High quality sound with deep bass.
-        </p>
+            <img
+                src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=500">
 
-        <div class="price-row">
-          <span class="price">₹999</span>
-          <span class="old-price">₹1499</span>
+            <h3>
+                Noise Smart Watch
+            </h3>
+
+            <div class="rating">
+                ★★★★★
+            </div>
+
+            <div class="price">
+                ₹2499
+            </div>
+
+            <button onclick="addToCart('Smart Watch',2499)">
+                Add to Cart
+            </button>
+
         </div>
 
-        <button onclick="addToCart('Wireless Headphones',999)">
-          Add to Cart
-        </button>
+        <!-- CARD 3 -->
 
-      </div>
+        <div class="card">
 
-      <!-- PRODUCT 2 -->
+            <img
+                src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500">
 
-      <div class="card">
+            <h3>
+                Redmi Smartphone
+            </h3>
 
-        <div class="badge">
-          Hot
+            <div class="rating">
+                ★★★★☆
+            </div>
+
+            <div class="price">
+                ₹19999
+            </div>
+
+            <button onclick="addToCart('Phone',19999)">
+                Add to Cart
+            </button>
+
         </div>
 
-        <img src="https://picsum.photos/250?random=2">
+        <!-- CARD 4 -->
 
-        <h3>Smart Watch</h3>
+        <div class="card">
 
-        <p class="desc">
-          Fitness tracking with premium design.
-        </p>
+            <img
+                src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500">
 
-        <div class="price-row">
-          <span class="price">₹1499</span>
-          <span class="old-price">₹1999</span>
+            <h3>
+                Nike Sneakers
+            </h3>
+
+            <div class="rating">
+                ★★★★★
+            </div>
+
+            <div class="price">
+                ₹2999
+            </div>
+
+            <button onclick="addToCart('Sneakers',2999)">
+                Add to Cart
+            </button>
+
         </div>
 
-        <button onclick="addToCart('Smart Watch',1499)">
-          Add to Cart
-        </button>
+        <!-- CARD 5 -->
 
-      </div>
+        <div class="card">
 
-      <!-- PRODUCT 3 -->
+            <img
+                src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500">
 
-      <div class="card">
+            <h3>
+                Skybags Backpack
+            </h3>
 
-        <div class="badge">
-          Sale
+            <div class="rating">
+                ★★★★☆
+            </div>
+
+            <div class="price">
+                ₹899
+            </div>
+
+            <button onclick="addToCart('Backpack',899)">
+                Add to Cart
+            </button>
+
         </div>
 
-        <img src="https://picsum.photos/250?random=3">
+        <!-- CARD 6 -->
 
-        <h3>Mechanical Keyboard</h3>
+        <div class="card">
 
-        <p class="desc">
-          RGB lighting with smooth typing feel.
-        </p>
+            <img
+                src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=500">
 
-        <div class="price-row">
-          <span class="price">₹799</span>
-          <span class="old-price">₹1299</span>
+            <h3>
+                Atomic Habits Book
+            </h3>
+
+            <div class="rating">
+                ★★★★★
+            </div>
+
+            <div class="price">
+                ₹399
+            </div>
+
+            <button onclick="addToCart('Book',399)">
+                Add to Cart
+            </button>
+
         </div>
 
-        <button onclick="addToCart('Mechanical Keyboard',799)">
-          Add to Cart
-        </button>
+        <!-- CARD 7 -->
 
-      </div>
+        <div class="card">
 
-      <!-- PRODUCT 4 -->
+            <img
+                src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500">
 
-      <div class="card">
+            <h3>
+                Apple Smart Watch
+            </h3>
 
-        <div class="badge">
-          Best Seller
+            <div class="rating">
+                ★★★★★
+            </div>
+
+            <div class="price">
+                ₹34999
+            </div>
+
+            <button onclick="addToCart('Apple Watch',34999)">
+                Add to Cart
+            </button>
+
         </div>
 
-        <img src="https://picsum.photos/250?random=4">
+        <!-- CARD 8 -->
 
-        <h3>Gaming Mouse</h3>
+        <div class="card">
 
-        <p class="desc">
-          Ergonomic design with ultra-fast clicks.
-        </p>
+            <img
+                src="https://images.unsplash.com/photo-1517336714739-489689fd1ca8?w=500">
 
-        <div class="price-row">
-          <span class="price">₹699</span>
-          <span class="old-price">₹999</span>
+            <h3>
+                MacBook Air
+            </h3>
+
+            <div class="rating">
+                ★★★★★
+            </div>
+
+            <div class="price">
+                ₹89999
+            </div>
+
+            <button onclick="addToCart('MacBook',89999)">
+                Add to Cart
+            </button>
+
         </div>
 
-        <button onclick="addToCart('Gaming Mouse',699)">
-          Add to Cart
-        </button>
+        <!-- CARD 9 -->
 
-      </div>
+        <div class="card">
+
+            <img
+                src="https://images.unsplash.com/photo-1585386959984-a41552231658?w=500">
+
+            <h3>
+                DSLR Camera
+            </h3>
+
+            <div class="rating">
+                ★★★★☆
+            </div>
+
+            <div class="price">
+                ₹45999
+            </div>
+
+            <button onclick="addToCart('Camera',45999)">
+                Add to Cart
+            </button>
+
+        </div>
+
+        <!-- CARD 10 -->
+
+        <div class="card">
+
+            <img
+                src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=500">
+
+            <h3>
+                Gaming Console
+            </h3>
+
+            <div class="rating">
+                ★★★★★
+            </div>
+
+            <div class="price">
+                ₹39999
+            </div>
+
+            <button onclick="addToCart('Console',39999)">
+                Add to Cart
+            </button>
+
+        </div>
+
+        <!-- CARD 11 -->
+
+        <div class="card">
+
+            <img
+                src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=500">
+
+            <h3>
+                Wireless Speaker
+            </h3>
+
+            <div class="rating">
+                ★★★★☆
+            </div>
+
+            <div class="price">
+                ₹2999
+            </div>
+
+            <button onclick="addToCart('Speaker',2999)">
+                Add to Cart
+            </button>
+
+        </div>
+
+        <!-- CARD 12 -->
+
+        <div class="card">
+
+            <img
+                src="https://images.unsplash.com/photo-1526178613658-3f1622045557?w=500">
+
+            <h3>
+                Running Shoes
+            </h3>
+
+            <div class="rating">
+                ★★★★★
+            </div>
+
+            <div class="price">
+                ₹4999
+            </div>
+
+            <button onclick="addToCart('Running Shoes',4999)">
+                Add to Cart
+            </button>
+
+        </div>
 
     </div>
 
-  </section>
-
-  <!-- CART SECTION -->
-
-  <section class="cart-section">
-
-    <h2>
-      Shopping Cart
-    </h2>
-
-    <ul id="cart-items"></ul>
-
-    <div class="total-box">
-      Total:
-      ₹<span id="total">0</span>
-    </div>
-
-    <button class="checkout-btn">
-      Proceed to Checkout
-    </button>
-
-  </section>
-
-  <!-- FOOTER -->
-
-  <footer>
-
-    <p>
-      © 2026 NovaCart E-Commerce Website
-    </p>
-
-  </footer>
-
-  <script src="script.js"></script>
-
-</body>
-</html>
+</section>
