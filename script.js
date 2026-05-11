@@ -1,13 +1,17 @@
 let total = 0;
 let cartCount = 0;
 
+/* ADD TO CART FUNCTION */
+
 function addToCart(productName, productPrice){
 
-    // CART ITEMS LIST
+    // GET CART ELEMENTS
 
     const cartItems = document.getElementById("cart-items");
+    const totalElement = document.getElementById("total");
+    const cartCounter = document.getElementById("cart-count");
 
-    // CREATE NEW ITEM
+    // CREATE NEW CART ITEM
 
     const li = document.createElement("li");
 
@@ -15,109 +19,206 @@ function addToCart(productName, productPrice){
         ${productName} - ₹${productPrice}
     `;
 
-    // ADD ITEM TO CART
+    // STYLE NEW ITEM
+
+    li.style.padding = "12px";
+    li.style.marginBottom = "10px";
+    li.style.background = "#f3f4f6";
+    li.style.borderRadius = "10px";
+    li.style.fontWeight = "500";
+    li.style.opacity = "0";
+    li.style.transform = "translateX(-20px)";
+
+    // APPEND ITEM
 
     cartItems.appendChild(li);
+
+    // ANIMATION
+
+    setTimeout(() => {
+
+        li.style.transition = "0.4s ease";
+
+        li.style.opacity = "1";
+
+        li.style.transform = "translateX(0px)";
+
+    },100);
 
     // UPDATE TOTAL
 
     total += productPrice;
 
-    document.getElementById("total").innerText = total;
+    totalElement.innerText = total;
 
     // UPDATE CART COUNT
 
     cartCount++;
 
-    document.getElementById("cart-count").innerText = cartCount;
+    cartCounter.innerText = cartCount;
 
-    // SMALL ANIMATION EFFECT
+    // POPUP MESSAGE
 
-    li.style.opacity = "0";
-    li.style.transform = "translateX(-20px)";
-
-    setTimeout(() => {
-        li.style.transition = "0.4s ease";
-        li.style.opacity = "1";
-        li.style.transform = "translateX(0)";
-    }, 50);
-
-    // BUTTON FEEDBACK
-
-    const buttons = document.querySelectorAll(".card button");
-
-    buttons.forEach(button => {
-
-        button.addEventListener("click", () => {
-
-            button.innerText = "Added ✓";
-
-            button.style.background =
-            "linear-gradient(to right,#22c55e,#16a34a)";
-
-            setTimeout(() => {
-
-                button.innerText = "Add to Cart";
-
-                button.style.background =
-                "linear-gradient(to right,#38bdf8,#818cf8)";
-
-            }, 1200);
-
-        });
-
-    });
+    showNotification(productName + " added to cart");
 
 }
 
-/* CHECKOUT BUTTON */
+/* NOTIFICATION FUNCTION */
 
-const checkoutBtn = document.querySelector(".checkout-btn");
+function showNotification(message){
 
-checkoutBtn.addEventListener("click", () => {
+    const notification = document.createElement("div");
 
-    if(total === 0){
+    notification.innerText = message;
 
-        alert("Your cart is empty!");
+    notification.style.position = "fixed";
+    notification.style.top = "20px";
+    notification.style.right = "20px";
+    notification.style.background = "#2563eb";
+    notification.style.color = "white";
+    notification.style.padding = "15px 25px";
+    notification.style.borderRadius = "10px";
+    notification.style.boxShadow = "0 5px 15px rgba(0,0,0,0.2)";
+    notification.style.zIndex = "9999";
+    notification.style.fontWeight = "500";
+    notification.style.opacity = "0";
+    notification.style.transform = "translateY(-20px)";
+    notification.style.transition = "0.4s ease";
+
+    document.body.appendChild(notification);
+
+    setTimeout(() => {
+
+        notification.style.opacity = "1";
+        notification.style.transform = "translateY(0px)";
+
+    },100);
+
+    setTimeout(() => {
+
+        notification.style.opacity = "0";
+        notification.style.transform = "translateY(-20px)";
+
+    },2000);
+
+    setTimeout(() => {
+
+        notification.remove();
+
+    },2500);
+
+}
+
+/* HERO BUTTON SCROLL */
+
+const heroBtn = document.querySelector(".hero-text button");
+
+heroBtn.addEventListener("click", () => {
+
+    window.scrollTo({
+
+        top:900,
+        behavior:"smooth"
+
+    });
+
+});
+
+/* SEARCH BUTTON */
+
+const searchBtn = document.querySelector(".search-box button");
+
+searchBtn.addEventListener("click", () => {
+
+    const searchInput =
+    document.querySelector(".search-box input").value;
+
+    if(searchInput.trim() === ""){
+
+        alert("Please enter a product name");
 
     }
     else{
 
         alert(
-            "Order placed successfully!\n\nTotal Amount: ₹" + total
+            "Searching for: " + searchInput
         );
 
     }
 
 });
 
-/* HERO BUTTON */
+/* CATEGORY HOVER EFFECT */
 
-const heroButton = document.querySelector(".hero-text button");
+const categories =
+document.querySelectorAll(".category");
 
-heroButton.addEventListener("click", () => {
+categories.forEach(category => {
 
-    window.scrollTo({
-        top:700,
-        behavior:"smooth"
+    category.addEventListener("mouseenter", () => {
+
+        category.style.background = "#2563eb";
+
+        category.style.color = "white";
+
+        category.querySelector("i").style.color = "white";
+
+    });
+
+    category.addEventListener("mouseleave", () => {
+
+        category.style.background = "white";
+
+        category.style.color = "#111827";
+
+        category.querySelector("i").style.color = "#2563eb";
+
     });
 
 });
 
-/* NAVBAR SCROLL EFFECT */
+/* CARD BUTTON ANIMATION */
+
+const cardButtons =
+document.querySelectorAll(".card button");
+
+cardButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        button.innerText = "Added ✓";
+
+        button.style.background = "#16a34a";
+
+        setTimeout(() => {
+
+            button.innerText = "Add to Cart";
+
+            button.style.background = "#2563eb";
+
+        },1200);
+
+    });
+
+});
+
+/* STICKY NAVBAR SHADOW */
 
 window.addEventListener("scroll", () => {
 
-    const navbar = document.querySelector(".navbar");
+    const navbar =
+    document.querySelector(".navbar");
 
-    if(window.scrollY > 50){
+    if(window.scrollY > 20){
 
-        navbar.style.background = "rgba(15,23,42,0.95)";
+        navbar.style.boxShadow =
+        "0 4px 20px rgba(0,0,0,0.08)";
 
     }
     else{
 
-        navbar.style.background = "rgba(255,255,255,0.05)";
+        navbar.style.boxShadow =
+        "0 2px 10px rgba(0,0,0,0.05)";
 
     }
 
