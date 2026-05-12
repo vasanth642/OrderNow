@@ -2,66 +2,30 @@ let total = 0;
 let cartCount = 0;
 
 /* ADD TO CART FUNCTION */
-
 function addToCart(productName, productPrice){
 
-    // GET CART ELEMENTS
+    let cart =
+    JSON.parse(localStorage.getItem("cart")) || [];
 
-    const cartItems = document.getElementById("cart-items");
-    const totalElement = document.getElementById("total");
-    const cartCounter = document.getElementById("cart-count");
+    cart.push({
+        name: productName,
+        price: productPrice
+    });
 
-    // CREATE NEW CART ITEM
-
-    const li = document.createElement("li");
-
-    li.innerHTML = `
-        ${productName} - ₹${productPrice}
-    `;
-
-    // STYLE NEW ITEM
-
-    li.style.padding = "12px";
-    li.style.marginBottom = "10px";
-    li.style.background = "#f3f4f6";
-    li.style.borderRadius = "10px";
-    li.style.fontWeight = "500";
-    li.style.opacity = "0";
-    li.style.transform = "translateX(-20px)";
-
-    // APPEND ITEM
-
-    cartItems.appendChild(li);
-
-    // ANIMATION
-
-    setTimeout(() => {
-
-        li.style.transition = "0.4s ease";
-
-        li.style.opacity = "1";
-
-        li.style.transform = "translateX(0px)";
-
-    },100);
-
-    // UPDATE TOTAL
-
-    total += productPrice;
-
-    totalElement.innerText = total;
-
-    // UPDATE CART COUNT
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
 
     cartCount++;
 
-    cartCounter.innerText = cartCount;
-
-    // POPUP MESSAGE
+    document.getElementById("cart-count")
+    .innerText = cartCount;
 
     showNotification(productName + " added to cart");
 
 }
+
 
 /* NOTIFICATION FUNCTION */
 
